@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer Sign-Up — Volunteers4TonyPrest</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.revealed { opacity: 1; transform: none; }
+
+    .signup-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: flex-start;
+    }
+
+    .signup-sidebar h3 {
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-benefit {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-benefit-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+
+    .sidebar-benefit h4 {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-benefit p {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .sidebar-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 2.5rem;
+      height: 220px;
+      object-fit: cover;
+      box-shadow: 0 8px 30px rgba(10,36,99,0.15);
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 3rem;
+      box-shadow: 0 8px 40px rgba(10,36,99,0.1);
+      border-top: 5px solid var(--blue);
+    }
+
+    .form-card h2 {
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-card > p {
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-submit-row {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .form-submit-row .disclaimer {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .success-msg {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .success-msg .success-icon {
+      width: 80px;
+      height: 80px;
+      background: #d1fae5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #059669;
+      margin: 0 auto 1.5rem;
+    }
+
+    .success-msg h3 {
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .success-msg p {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 420px;
+      margin: 0 auto 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .signup-wrapper { grid-template-columns: 1fr; }
+      .signup-sidebar { display: none; }
+      .form-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO -->
+  <section class="hero hero-sub">
+    <div class="hero-bg" style="background-image: url('images/our_cam.png');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-label">Take Action</span>
+      <h1>Volunteer<br>Sign Up</h1>
+      <p>Register in under 3 minutes. Join thousands of Delta citizens already in the movement.</p>
+    </div>
+  </section>
+
+  <!-- SIGN-UP SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="signup-wrapper">
+
+        <!-- Sidebar -->
+        <aside class="signup-sidebar reveal">
+          <h3>What You Get When You Register</h3>
+
+          <div class="sidebar-benefit">
+            <div class="sidebar-benefit-icon"><i class="ph ph-identification-card"></i></div>
+            <div>
+              <h4>Official Volunteer ID Card</h4>
+              <p>A barcoded, verifiable ID card identifying you as an official Volunteers4TonyPrest member.</p>
+            </div>
+          </div>
+
+          <div class="sidebar-benefit">
+            <div class="sidebar-benefit-icon"><i class="ph ph-map-pin"></i></div>
+            <div>
+              <h4>Ward Team Placement</h4>
+              <p>You'll be assigned to your local ward team and connected with your LGA coordinator.</p>
+            </div>
+          </div>
+
+          <div class="sidebar-benefit">
+            <div class="sidebar-benefit-icon"><i class="ph ph-device-mobile"></i></div>
+            <div>
+              <h4>Volunteer Updates & Resources</h4>
+              <p>Receive campaign briefings, canvassing schedules, and event invites directly.</p>
+            </div>
+          </div>
+
+          <div class="sidebar-benefit">
+            <div class="sidebar-benefit-icon"><i class="ph ph-trophy"></i></div>
+            <div>
+              <h4>Recognition & Community</h4>
+              <p>Be recognized for your contribution to this historic people-powered movement.</p>
+            </div>
+          </div>
+
+          <img
+            class="sidebar-img"
+            src="images/T_image.jpeg"
+            alt="Volunteers registering"
+            loading="lazy"
+          />
+        </aside>
+
+        <!-- Form -->
+        <div class="form-card reveal">
+          <h2>Register as a Volunteer</h2>
+          <p>All fields marked with * are required. Your information is kept confidential.</p>
+
+          <form id="signup-form" novalidate>
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label for="full-name">Full Name *</label>
+                <input type="text" id="full-name" name="full_name" placeholder="e.g. Chisom Okonkwo" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. 08012345678" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="yourname@email.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="lga">Local Government Area *</label>
+                <select id="lga" name="lga" required>
+                  <option value="">— Select your LGA —</option>
+                  <option>Aniocha North</option>
+                  <option>Aniocha South</option>
+                  <option>Bomadi</option>
+                  <option>Burutu</option>
+                  <option>Ethiope East</option>
+                  <option>Ethiope West</option>
+                  <option>Ika North East</option>
+                  <option>Ika South</option>
+                  <option>Isoko North</option>
+                  <option>Isoko South</option>
+                  <option>Ndokwa East</option>
+                  <option>Ndokwa West</option>
+                  <option>Okpe</option>
+                  <option>Oshimili North</option>
+                  <option>Oshimili South</option>
+                  <option>Patani</option>
+                  <option>Sapele</option>
+                  <option>Udu</option>
+                  <option>Ughelli North</option>
+                  <option>Ughelli South</option>
+                  <option>Ukwuani</option>
+                  <option>Uvwie</option>
+                  <option>Warri North</option>
+                  <option>Warri South</option>
+                  <option>Warri South West</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="ward">Ward *</label>
+                <input type="text" id="ward" name="ward" placeholder="e.g. Ward 3, Warri South" required />
+              </div>
+
+              <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" placeholder="e.g. Teacher, Trader, Student" />
+              </div>
+
+              <div class="form-group full">
+                <label for="skills">Your Skills & How You Can Help</label>
+                <select id="skills" name="skills">
+                  <option value="">— Select your primary skill —</option>
+                  <option>Door-to-Door Canvassing</option>
+                  <option>Social Media & Digital Outreach</option>
+                  <option>Event & Rally Organization</option>
+                  <option>Voter Registration Drives</option>
+                  <option>Community Leadership</option>
+                  <option>Youth Mobilization</option>
+                  <option>Women's Group Organizing</option>
+                  <option>Transportation & Logistics</option>
+                  <option>Photography / Videography</option>
+                  <option>Data Entry & Administration</option>
+                  <option>Legal / Election Observation</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group full">
+                <label for="message">Anything Else? (Optional)</label>
+                <textarea id="message" name="message" placeholder="Tell us why you want to volunteer, or any other skills you bring..."></textarea>
+              </div>
+
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-primary btn-large">Register as a Volunteer</button>
+              <p class="disclaimer">By registering, you agree to receive campaign updates via SMS/WhatsApp.</p>
+            </div>
+          </form>
+
+          <div class="success-msg" id="signup-success">
+            <span class="success-icon"><i class="ph ph-check-circle"></i></span>
+            <h3>Welcome to the Movement!</h3>
+            <p>You are now officially registered as a Volunteers4TonyPrest volunteer. Your LGA coordinator will be in touch within 48 hours with next steps and your volunteer ID.</p>
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="shared-components.js"></script>
+  <script src="script.js"></script>
+
+  <!--- Fire Base --->
+   <script type="module">
+    import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp }
+      from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    //FIREBASE CONFIG 
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyBEVurn2LMvwrua3HpCMsyy8JYx84GD-GY",
+  authDomain: "volunteers4.firebaseapp.com",
+  projectId: "volunteers4",
+  storageBucket: "volunteers4.firebasestorage.app",
+  messagingSenderId: "599327241224",
+  appId: "1:599327241224:web:2b4c6232ebbaf1e4c34dbd",
+  measurementId: "G-08NC0HDJ50"
+    };
+    //
+
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+
+    const form       = document.getElementById("signup-form");
+    const successBox = document.getElementById("signup-success");
+
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // ── Collect all field values ──
+        const fullName   = document.getElementById("full-name")?.value.trim()   || "";
+        const phone      = document.getElementById("phone")?.value.trim()        || "";
+        const email      = document.getElementById("email")?.value.trim()        || "";
+        const lga        = document.getElementById("lga")?.value.trim()          || "";
+        const ward       = document.getElementById("ward")?.value.trim()         || "";
+        const occupation = document.getElementById("occupation")?.value.trim()   || "";
+        const skills     = document.getElementById("skills")?.value.trim()       || "";
+        const message    = document.getElementById("message")?.value.trim()      || "";
+
+        // ── Highlight empty required fields ──
+        let valid = true;
+        [
+          { id: "full-name", val: fullName },
+          { id: "phone",     val: phone    },
+          { id: "lga",       val: lga      },
+          { id: "ward",      val: ward     },
+        ].forEach(({ id, val }) => {
+          const el = document.getElementById(id);
+          if (!val) { if (el) el.style.borderColor = "#D62828"; valid = false; }
+          else       { if (el) el.style.borderColor = ""; }
+        });
+
+        if (!valid) return;
+
+        // ── Disable submit button ──
+        const submitBtn  = form.querySelector("button[type='submit']");
+        const origLabel  = submitBtn.textContent;
+        submitBtn.disabled    = true;
+        submitBtn.textContent = "Submitting...";
+
+        try {
+          // ── Auto-format Nigerian phone → international ──
+          let waPhone = phone.replace(/\D/g, "");           // strip non-digits
+          if (waPhone.startsWith("0")) {
+            waPhone = "234" + waPhone.slice(1);             // 08012... → 2348012...
+          }
+
+          // ── Save to Firestore ──
+          await addDoc(collection(db, "volunteers"), {
+            fullName,
+            phone,
+            email,
+            lga,
+            ward,
+            occupation,
+            skills,
+            message,
+            createdAt: serverTimestamp()
+          });
+
+          // ── Hide form, show success box ──
+          form.style.display = "none";
+          if (successBox) {
+            successBox.classList.add("show");
+            successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+
+          // ── Open WhatsApp with welcome message (1.5s delay) ──
+          const waText = encodeURIComponent(
+            `Hello ${fullName}!\n\nWelcome to the Volunteers4TonyPrest movement!\n\nYou have been successfully registered as a volunteer.\n\nYour LGA coordinator will be in touch within 48 hours with your next steps and volunteer ID.\n\nTogether we will elect Tony Prest Governor of Delta State!`
+          );
+          setTimeout(() => {
+            window.open(`https://wa.me/${waPhone}?text=${waText}`, "_blank");
+          }, 1500);
+
+        } catch (err) {
+          console.error("Firebase error:", err);
+          alert("Something went wrong. Please try again.");
+          submitBtn.disabled    = false;
+          submitBtn.textContent = origLabel;
+        }
+      });
+    }
+    </script>
+</body>
+</html>

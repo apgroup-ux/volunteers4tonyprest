@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteers4TonyPrest — Join the Movement for Delta State</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* Scroll reveal animations */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.revealed { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Community centers section image */
+    .centers-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-top: 3rem;
+      box-shadow: 0 12px 40px rgba(10,36,99,0.15);
+    }
+
+    /* Ticker band */
+    .ticker {
+      background: var(--red);
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker-scroll 30s linear infinite;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      ✦ Join Volunteers4TonyPrest &nbsp;&nbsp;&nbsp; ✦ Delta State Deserves Real Leadership &nbsp;&nbsp;&nbsp; ✦ Register Your Ward Team Today &nbsp;&nbsp;&nbsp; ✦ Volunteer Centers Opening Across All 25 LGAs &nbsp;&nbsp;&nbsp; ✦ Be Part of the Movement &nbsp;&nbsp;&nbsp; ✦ Tony Prest for Governor &nbsp;&nbsp;&nbsp; ✦ People Powered Change &nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" style="min-height: 680px;">
+    <div class="hero-bg" style="background-image: url('images/all_hands.png');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-label">Delta State Governor's Campaign</span>
+      <h1>Join the<br>People Powered<br>Movement to Elect<br><em>Tony Prest</em><br>Governor of Delta State</h1>
+      <p>Delta belongs to the people. Together we are building the largest volunteer movement to support Tony Prest's campaign for Governor.</p>
+      <div class="hero-buttons">
+        <a href="signup.html" class="btn btn-primary btn-large">Become a Volunteer</a>
+        <a href="why-volunteer.html" class="btn btn-secondary btn-large">Join the Movement</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-item">
+      <span class="stat-number" data-count="12000" data-suffix="+">0</span>
+      <span class="stat-label">Volunteers Registered</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-count="25" data-suffix="">0</span>
+      <span class="stat-label">LGA Chapters Active</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-count="300" data-suffix="+">0</span>
+      <span class="stat-label">Ward Coordinators</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-count="1">0</span>
+      <span class="stat-label">Mission: Elect Tony Prest</span>
+    </div>
+  </div>
+
+  <!-- MOVEMENT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <span class="section-label">Who We Are</span>
+          <h2 class="section-title">Delta's First Real People Power Movement</h2>
+          <p class="section-body">Volunteers4TonyPrest is a grassroots movement built to support the governorship campaign of Chief Anthony Tosan Prest. This movement is powered by ordinary citizens across Delta State who want real leadership and real change.</p>
+          <p class="section-body" style="margin-top:-0.5rem;">From Warri to Asaba, Sapele to Agbor, thousands of Delta sons and daughters are standing up. We are not a party machine. We are the people.</p>
+          <ul class="mission-list" style="margin-bottom:2rem;">
+            <li>Citizen led volunteer coordination across all 25 LGAs</li>
+            <li>Youth powered organizing in every ward</li>
+            <li>Voter registration and outreach drives</li>
+            <li>Community meetups and town hall events</li>
+          </ul>
+          <a href="about.html" class="btn btn-outline-blue">Learn About the Campaign</a>
+        </div>
+        <div class="col-image reveal reveal-delay-1">
+          <img src="images/our_cam.png" alt="Volunteers organizing together" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-red" />
+
+  <!-- VOLUNTEER CENTERS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="text-align:center;" class="reveal">
+        <span class="section-label">Organizing Infrastructure</span>
+        <h2 class="section-title center">Building Volunteer Centers Across Delta State</h2>
+        <p style="max-width:640px;margin:0 auto 1rem;color:var(--gray);font-size:1.05rem;">
+          Our network of community volunteer centers serves as the organizing backbone of the Prest campaign, giving every Delta citizen a local hub to register, train, and mobilize.
+        </p>
+      </div>
+
+      <div class="three-col" style="margin-top:3.5rem;">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="card-icon"><i class="ph ph-buildings"></i></div>
+          <h3>Volunteer Community Centers</h3>
+          <p>Dedicated physical spaces in every LGA where volunteers gather, strategize, and receive training on voter outreach and canvassing.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="card-icon"><i class="ph ph-identification-card"></i></div>
+          <h3>Barcoded Volunteer ID Cards</h3>
+          <p>Every registered volunteer receives an official barcoded ID card, verifying your identity, your ward, and your role in the movement.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="card-icon"><i class="ph ph-map-pin-area"></i></div>
+          <h3>LGA Organizing Hubs</h3>
+          <p>Local Government Organizing Hubs coordinate grassroots activity, ward by ward canvassing schedules, and community engagement events.</p>
+        </div>
+      </div>
+
+      <img
+        class="centers-image reveal"
+        src="images/meeting.png"
+        alt="Young people working together in community organizing"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-text reveal">
+        <h2>Be Part of the Movement Changing Delta State</h2>
+        <p>Register today and receive your volunteer ID. Join thousands of Delta citizens who are taking action for real change.</p>
+      </div>
+      <div style="flex-shrink:0;" class="reveal reveal-delay-1">
+        <a href="signup.html" class="btn btn-primary btn-large">Register as a Volunteer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY VOLUNTEER PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col reverse">
+        <div class="col-image reveal">
+          <img src="images/show_up_image.png" alt="Community leader speaking to group" loading="lazy" />
+        </div>
+        <div class="reveal reveal-delay-1">
+          <span class="section-label">Why It Matters</span>
+          <h2 class="section-title">Elections Are Won by Those Who Show Up</h2>
+          <p class="section-body">Political change doesn't happen in the corridors of power alone, it happens in the streets, in the wards, in every community where ordinary citizens organize and vote.</p>
+          <p class="section-body" style="margin-top:-0.5rem;">By volunteering, you become a frontline force in this historic campaign. You are the message. You are the movement.</p>
+          <a href="why-volunteer.html" class="btn btn-primary" style="margin-top:0.5rem;">Why Volunteer →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="shared-components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
