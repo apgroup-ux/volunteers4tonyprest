@@ -144,12 +144,12 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-label">Take Action</span>
-      <h1>Volunteer<br>Sign Up</h1>
+      <h1>Volunteer<br>Sign-Up</h1>
       <p>Register in under 3 minutes. Join thousands of Delta citizens already in the movement.</p>
     </div>
   </section>
 
-  <!-- SIGN-UP SECTION -->
+  <!--  SIGN-UP SECTION  -->
   <section class="section">
     <div class="container">
       <div class="signup-wrapper">
@@ -179,7 +179,7 @@
             <div>
               <h4>Volunteer Updates & Resources</h4>
               <p>Receive campaign briefings, canvassing schedules, and event invites directly.</p>
-            </div>
+            </div> 
           </div>
 
           <div class="sidebar-benefit">
@@ -192,7 +192,7 @@
 
           <img
             class="sidebar-img"
-            src="images/T_image.jpeg"
+            src="images/T_image.jpeg "
             alt="Volunteers registering"
             loading="lazy"
           />
@@ -311,25 +311,29 @@
   <script src="shared-components.js"></script>
   <script src="script.js"></script>
 
-  <!--- Fire Base --->
-   <script type="module">
+  <!-- ================================================
+       FIREBASE — Volunteer Registration
+       Replace all YOUR_* values with your Firebase
+       config from console.firebase.google.com
+       ================================================ -->
+  <script type="module">
     import { initializeApp }
       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp }
       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    //FIREBASE CONFIG 
-
+    // ─────────────────────────────────────────────────
+    // INSERT YOUR FIREBASE CONFIG HERE
+    // ─────────────────────────────────────────────────
     const firebaseConfig = {
-  apiKey: "AIzaSyBEVurn2LMvwrua3HpCMsyy8JYx84GD-GY",
-  authDomain: "volunteers4.firebaseapp.com",
-  projectId: "volunteers4",
-  storageBucket: "volunteers4.firebasestorage.app",
-  messagingSenderId: "599327241224",
-  appId: "1:599327241224:web:2b4c6232ebbaf1e4c34dbd",
-  measurementId: "G-08NC0HDJ50"
+      apiKey:            "AIzaSyBEVurn2LMvwrua3HpCMsyy8JYx84GD-GY",
+      authDomain:        "volunteers4.firebaseapp.com",
+      projectId:         "volunteers4",
+      storageBucket:     "volunteers4.firebasestorage.app",
+      messagingSenderId: "599327241224",
+      appId:             "1:599327241224:web:2b4c6232ebbaf1e4c34dbd"
     };
-    //
+    // ─────────────────────────────────────────────────
 
     const app = initializeApp(firebaseConfig);
     const db  = getFirestore(app);
@@ -415,6 +419,7 @@
         }
       });
     }
-    </script>
+  </script>
+
 </body>
-</html>
+</html> 
