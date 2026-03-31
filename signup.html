@@ -149,7 +149,7 @@
     </div>
   </section>
 
-  <!--  SIGN-UP SECTION  -->
+  <!--SIGN-UP SECTION -->
   <section class="section">
     <div class="container">
       <div class="signup-wrapper">
@@ -179,7 +179,7 @@
             <div>
               <h4>Volunteer Updates & Resources</h4>
               <p>Receive campaign briefings, canvassing schedules, and event invites directly.</p>
-            </div> 
+            </div>
           </div>
 
           <div class="sidebar-benefit">
@@ -192,7 +192,7 @@
 
           <img
             class="sidebar-img"
-            src="images/T_image.jpeg "
+            src="images/T_image.jpeg"
             alt="Volunteers registering"
             loading="lazy"
           />
@@ -203,7 +203,13 @@
           <h2>Register as a Volunteer</h2>
           <p>All fields marked with * are required. Your information is kept confidential.</p>
 
-          <form id="signup-form" novalidate>
+          <form id="signup-form" action="https://formsubmit.co/prestweyimi@gmail.com" method="POST">
+            <!-- FormSubmit controls -->
+            <input type="hidden" name="_subject" value="New Volunteer Registration — Volunteers4TonyPrest" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://volunteers4tonyprest.netlify.app/signup.html?success=true" />
+            <input type="hidden" name="_autoresponse" value="Thank you for volunteering! We received your submission." />
             <div class="form-grid">
 
               <div class="form-group">
@@ -311,115 +317,18 @@
   <script src="shared-components.js"></script>
   <script src="script.js"></script>
 
-  <!-- ================================================
-       FIREBASE — Volunteer Registration
-       Replace all YOUR_* values with your Firebase
-       config from console.firebase.google.com
-       ================================================ -->
-  <script type="module">
-    import { initializeApp }
-      from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp }
-      from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-    // ─────────────────────────────────────────────────
-    // INSERT YOUR FIREBASE CONFIG HERE
-    // ─────────────────────────────────────────────────
-    const firebaseConfig = {
-      apiKey:            "AIzaSyBEVurn2LMvwrua3HpCMsyy8JYx84GD-GY",
-      authDomain:        "volunteers4.firebaseapp.com",
-      projectId:         "volunteers4",
-      storageBucket:     "volunteers4.firebasestorage.app",
-      messagingSenderId: "599327241224",
-      appId:             "1:599327241224:web:2b4c6232ebbaf1e4c34dbd"
-    };
-    // ─────────────────────────────────────────────────
-
-    const app = initializeApp(firebaseConfig);
-    const db  = getFirestore(app);
-
-    const form       = document.getElementById("signup-form");
-    const successBox = document.getElementById("signup-success");
-
-    if (form) {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        // ── Collect all field values ──
-        const fullName   = document.getElementById("full-name")?.value.trim()   || "";
-        const phone      = document.getElementById("phone")?.value.trim()        || "";
-        const email      = document.getElementById("email")?.value.trim()        || "";
-        const lga        = document.getElementById("lga")?.value.trim()          || "";
-        const ward       = document.getElementById("ward")?.value.trim()         || "";
-        const occupation = document.getElementById("occupation")?.value.trim()   || "";
-        const skills     = document.getElementById("skills")?.value.trim()       || "";
-        const message    = document.getElementById("message")?.value.trim()      || "";
-
-        // ── Highlight empty required fields ──
-        let valid = true;
-        [
-          { id: "full-name", val: fullName },
-          { id: "phone",     val: phone    },
-          { id: "lga",       val: lga      },
-          { id: "ward",      val: ward     },
-        ].forEach(({ id, val }) => {
-          const el = document.getElementById(id);
-          if (!val) { if (el) el.style.borderColor = "#D62828"; valid = false; }
-          else       { if (el) el.style.borderColor = ""; }
-        });
-
-        if (!valid) return;
-
-        // ── Disable submit button ──
-        const submitBtn  = form.querySelector("button[type='submit']");
-        const origLabel  = submitBtn.textContent;
-        submitBtn.disabled    = true;
-        submitBtn.textContent = "Submitting...";
-
-        try {
-          // ── Auto-format Nigerian phone → international ──
-          let waPhone = phone.replace(/\D/g, "");           // strip non-digits
-          if (waPhone.startsWith("0")) {
-            waPhone = "234" + waPhone.slice(1);             // 08012... → 2348012...
-          }
-
-          // ── Save to Firestore ──
-          await addDoc(collection(db, "volunteers"), {
-            fullName,
-            phone,
-            email,
-            lga,
-            ward,
-            occupation,
-            skills,
-            message,
-            createdAt: serverTimestamp()
-          });
-
-          // ── Hide form, show success box ──
-          form.style.display = "none";
-          if (successBox) {
-            successBox.classList.add("show");
-            successBox.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-
-          // ── Open WhatsApp with welcome message (1.5s delay) ──
-          const waText = encodeURIComponent(
-            `Hello ${fullName}!\n\nWelcome to the Volunteers4TonyPrest movement!\n\nYou have been successfully registered as a volunteer.\n\nYour LGA coordinator will be in touch within 48 hours with your next steps and volunteer ID.\n\nTogether we will elect Tony Prest Governor of Delta State!`
-          );
-          setTimeout(() => {
-            window.open(`https://wa.me/${waPhone}?text=${waText}`, "_blank");
-          }, 1500);
-
-        } catch (err) {
-          console.error("Firebase error:", err);
-          alert("Something went wrong. Please try again.");
-          submitBtn.disabled    = false;
-          submitBtn.textContent = origLabel;
-        }
-      });
+  <!-- FormSubmit success detection -->
+  <script>
+    if (window.location.search.includes('success=true')) {
+      const form = document.getElementById('signup-form');
+      const successBox = document.getElementById('signup-success');
+      if (form) form.style.display = 'none';
+      if (successBox) {
+        successBox.classList.add('show');
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   </script>
 
 </body>
-</html> 
+</html>
